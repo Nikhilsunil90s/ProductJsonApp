@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+}
+
+.navbar-brand{
+  
+  font-size:x-large !important ;
+  color: rgb(10, 10, 9) !important;
+
+ 
+}
+.p{
+  font-family: 'Times New Roman', Times, serif;
+  color: #64CCE7;
+}
+.navbar a {
+  font-size: 1.3rem !important;
+  text-transform: capitalize !important;
+
+}
+
+.menu_active{
+  font-weight: bold;
+  border-bottom: 1px solid aqua;
+}
+.navbar a:hover{
+  color: aquamarine !important;
+}
