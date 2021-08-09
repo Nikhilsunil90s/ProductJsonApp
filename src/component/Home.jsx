@@ -33,8 +33,7 @@ loadusers();
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Brand</th>
-      <th scope="col ">Action</th>
-     
+      <th scope="col ">Price</th> 
     </tr>
   </thead>
 
@@ -50,9 +49,9 @@ loadusers();
            
            
            <td>
-           
-             <Link className='btn btn-outline-success me-1' exact to={`/edit/${elm.id}`}>Edit</Link>
-             <Link className='btn btn-outline-warning' onClick={()=> {deleteuser(elm.id)}}>Delete</Link>
+            {elm.price}
+             {/* <Link className='btn btn-outline-success me-1' exact to={`/edit/${elm.id}`}>Edit</Link>
+             <Link className='btn btn-outline-warning' onClick={()=> {deleteuser(elm.id)}}>Delete</Link> */}
            </td>
 
        

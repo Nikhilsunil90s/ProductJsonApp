@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
 import Navbar from './component/Navbar'
 import Home from'./component/Home'
+import Checkout from './component/Checkout'
 import About from './component/About'
 import Contact from './component/Contact'
 import Service from './component/Service'
@@ -16,12 +17,8 @@ function App() {
     <Navbar />
     <Switch>
       <Route exact path='/' component={Home} />
-      <Route path='/about' component={About} />
-      <Route path='/contact' component={Contact} />
-      <Route path='/service' component={Service} />
-      <Route exact path='/edit/:id' component={EditUsers}/>
       <Route exact path='/view/:id' component={View} />
-      <Redirect to='/' />
+      <Route exact path = '/checkout/:id' component = {Checkout}/>
     </Switch>
 
     </>

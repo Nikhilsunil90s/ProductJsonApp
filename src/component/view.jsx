@@ -10,8 +10,13 @@ const View = () => {
     price: "",
     available: "",
     weight: "",
+    options: []
   });
-  const { name, brand, price, available, weight } = item;
+  const [colors, setColors] = useState([]);
+  const [storage, setStorage] = useState([]);
+  const [qty, setQty] = useState([]);
+
+  const { name, brand, price, options, weight } = item;
   const { id } = useParams();
 
   useEffect(() => {
@@ -21,21 +26,50 @@ const View = () => {
     const result = await Axios.get(`http://localhost:3003/items/${id}`);
     console.log(result);
     setItem(result.data);
+    // setOptions(result.data.options);
+    setColors(result.data.options.map(opt => {
+      return opt.color
+    }));
+    setQty(result.data.options.map(opt => {
+      return opt.quantity
+    }));
+    setStorage(result.data.options.map(opt => {
+      return opt.storage
+    }));
+    console.log(colors, qty, storage);
   };
   return (
     <div className="container nav_bg ">
       <div className="row mt-5 ">
         <div className="col-10 mx-auto text-center ">
           <div class="card" style={{ width: "18rem" }}>
-            <img src="..." class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">{name}</h5>
               <p class="card-text"></p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Brand:{brand}</li>
+             
+              {
+                options && options.map(opt => {
+                  return (
+                    // <li>
+                    // </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <span style={{ backgroundColor: opt.color, color: opt.color, height: '50px', width: '50px', border: '1px solid lightblue', borderRadius: '50%' }}> </span>
+                      <span>{ opt?.storage && opt?.storage.map(st => {
+    
+                        return (
+                           <span style={{ border: '1px solid blue' }}> { st } </span>
+                        )
+                      }) }</span>
+                      <span class="badge badge-primary badge-pill" style={{ color: '#212529' }}> { opt.quantity } </span>
+
+                    </li>
+                  )
+                })
+              }
               <li class="list-group-item">Price:${price}/-</li>
-              <li class="list-group-item"><Link className='btn btn-outline-success me-1' exact to={`/edit`}>Check out</Link></li>
+              <li class="list-group-item"><Link className='btn btn-outline-success me-1' exact to={`/checkout/${id}`}>Check out</Link></li>
             </ul>
           </div>
         </div>

@@ -46,11 +46,11 @@ loadusers();
            <td>{elm.id}</td>
            <td>{elm.name}</td>
            <td>{elm.brand}</td>
-           <td>
+           {/* <td>
              <Link className='btn btn-outline-primary  me-1' exact to={`view/${elm.id}`}>View</Link>
              <Link className='btn btn-outline-success me-1' exact to={`/edit/${elm.id}`}>Edit</Link>
              <Link className='btn btn-outline-warning' onClick={()=> {deleteuser(elm.id)}}>Delete</Link>
-           </td>
+           </td> */}
        
 
          </tr>
